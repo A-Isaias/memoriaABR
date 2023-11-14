@@ -377,4 +377,6 @@ const manejarHighscoresClick = () => {
     });
 };
 
+
+
 reiniciarJuego();
