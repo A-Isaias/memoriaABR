@@ -9,10 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const highscoresList = document.getElementById("highscores-list");
                 highscoresList.innerHTML = "<h2>Top 10 Highscores</h2>";
-
+                
                 highscores.slice(0, 10).forEach((score, index) => {
                     // Mostrar solo los primeros 10 highscores
-                    highscoresList.innerHTML += `<p>${index + 1}. ${score.nombre} - ${score.puntuacion} PTS</p>`;
+                    const puestoHTML = document.createElement("p");
+                    puestoHTML.innerHTML = `${index + 1}. ${score.nombre} - ${score.puntuacion} Pts.`;
+
+                    if (index === 0) {
+                        // Aplicar estilos adicionales al puesto 1
+                        puestoHTML.style.fontWeight = "bold";
+                        puestoHTML.style.animation = "titilar 0.5s infinite"; // Añadir un efecto de titilación
+                        //puestoHTML.style.backgroundColor = "white"; // Color de fondo amarillo
+                        puestoHTML.style.boxShadow = "5px 5px 5px #888888"; // Sombra ligera
+                        puestoHTML.style.fontSize = "1.5em"; // Aumentar el tamaño de la fuente al 120%
+                    }
+
+                    highscoresList.appendChild(puestoHTML);
                 });
 
                 // Agregar botones
