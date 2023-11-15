@@ -9,16 +9,13 @@ const mostrarModal = (mensaje, callback) => {
     const modalContent = document.querySelector(".modal-content");
     modalContent.innerHTML = ""; // Limpiar el contenido existente
 
-    // Agregar mensaje "GANASTE! BIEN HECHO VIRGO!"
     modalContent.innerHTML += "<p>GANASTE! BIEN HECHO VIRGO!</p>";
 
-    // Agregar contenido adicional (puedes personalizar según tus necesidades)
     modalContent.innerHTML += `<div>${mensaje.replace(/\n/g, "<br>")}</div>`;
 
-    modalContent.innerHTML += "<p>-</p>";
+    modalContent.innerHTML += "<br>";
 
     modalContent.innerHTML += "<p>Haz click para ver los Yeeecords</p>";
-
 
     // Agregar botones
     const buttonsContainer = document.createElement("div");
@@ -28,13 +25,21 @@ const mostrarModal = (mensaje, callback) => {
     // Mostrar el modal
     modal.style.display = "block";
 
-    // Llamar al callback después de que el usuario haga clic para cerrar el modal
-    document.addEventListener("click", () => {
+    // Llamar al callback después de cerrar el modal
+    document.addEventListener("click", function documentClickHandler(event) {
+        event.stopPropagation();
         ocultarModal();
+        document.removeEventListener("click", documentClickHandler); // Eliminar el event listener para evitar problemas
         if (callback && typeof callback === "function") {
             callback();
+            console.log("Se hizo clic y se redirigirá a highscores.html");
         }
     });
+
+    // Asignar evento click al documento después de un breve retraso
+    setTimeout(() => {
+        document.addEventListener("click", irAHighscores);
+    }, 100);
 };
 
 const ocultarModal = () => {
@@ -157,13 +162,12 @@ const comparar = (imagen1, imagen2) => {
         }
 
         if (parejas == 8) {
+            detenerJuego();  // Detener el temporizador aquí
             sonidos.src = "sounds/youwin.mp3";
             sonidos.volume = 0.4;
             sonidos.play();
 
-            detenerJuego();  // Detener el temporizador aquí
-
-            // mostrarModal("GANASTE! BIEN HECHO VIRGO!");
+             // mostrarModal("GANASTE! BIEN HECHO VIRGO!");
 
             setTimeout(() => {
                 calcularPuntuacionFinal();
@@ -183,7 +187,7 @@ const comparar = (imagen1, imagen2) => {
                 Bonus por combo (${consecutivas}): ${bonificacionConsecutivas} pts
                 Total: ${totalPuntos} pts
                 `;
-
+// no tocar o se rompe
                 mostrarModal(desglosePuntos, () => {
                     // Llamar a verificarHighscore con la puntuación actual
                     verificarHighscore(puntuacion);
@@ -228,8 +232,10 @@ const mostrarGameOver = (mensaje) => {
     // Agregar mensaje
     modalContent.innerHTML += `<p>${mensaje}</p>`;
 
+    modalContent.innerHTML += "<br>";
+
     // Agregar mensaje adicional
-    modalContent.innerHTML += "<p>Haz click para ver los records</p>";
+    modalContent.innerHTML += "<p>Haz click para ver los Yeeecords</p>";
 
     // Agregar botones
     modalContent.innerHTML += "<br><button onclick='volverAlMenu()'>Volver al Menú</button> <button onclick='reiniciarJuegoHandler()'>Reiniciar Juego</button>";
@@ -269,10 +275,10 @@ const calcularPuntuacionFinal = () => {
         <br>Total: ${totalPuntos} pts
     `;
 
-    mostrarModal(desglosePuntos, () => {
-        // Llamar a verificarHighscore con la puntuación actual
-        verificarHighscore(puntuacion);
-    });
+    // mostrarModal(desglosePuntos, () => {
+    //     // Llamar a verificarHighscore con la puntuación actual
+    //     verificarHighscore(puntuacion);
+    // });
 
     puntuacion += totalPuntos;
 
@@ -337,46 +343,6 @@ const reiniciarJuego = () => {
 
     fondo.play();
 };
-
-// Función para cargar los highscores desde el JSON
-const cargarHighscores = () => {
-    return fetch("db/highscores.json")
-        .then((response) => response.json())
-        .catch((error) => console.error("Error al cargar highscores:", error));
-};
-
-// Función para guardar los highscores en el JSON
-const guardarHighscores = (nuevoHighscore) => {
-    return fetch("db/highscores.json", {
-        method: "POST", // Cambia a "PUT" si es necesario
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuevoHighscore),
-    })
-        .then((response) => response.json())
-        .catch((error) => console.error("Error al guardar highscores:", error));
-};
-
-// Función para verificar si la puntuación es suficientemente alta para estar en el top 10
-const verificarHighscore = (puntuacion) => {
-    // Lógica para verificar si la puntuación es suficientemente alta
-    // Si es así, abrir la página de highscores
-    if (puntuacion > 0) {
-        window.location.href = "highscores.html";
-    } else {
-        reiniciarJuegoHandler();
-    }
-};
-
-// Función para manejar el evento click específico para highscores
-const manejarHighscoresClick = () => {
-    // Aquí llamamos la lógica de highscores, por ejemplo:
-    cargarHighscores().then((highscores) => {
-        console.log("Highscores cargados:", highscores);
-    });
-};
-
 
 
 reiniciarJuego();
