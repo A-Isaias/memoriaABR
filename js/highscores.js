@@ -4,11 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
         fetch("db/highscores.json") // Ajusta la ruta aquí
             .then((response) => response.json())
             .then((highscores) => {
+                // Ordenar los highscores por puntuación de mayor a menor
+                highscores.sort((a, b) => b.puntuacion - a.puntuacion);
+
                 const highscoresList = document.getElementById("highscores-list");
                 highscoresList.innerHTML = "<h2>Top 10 Highscores</h2>";
 
-                highscores.forEach((score) => {
-                    highscoresList.innerHTML += `<p>${score.posicion}. ${score.nombre} - ${score.puntuacion} PTS</p>`;
+                highscores.slice(0, 10).forEach((score, index) => {
+                    // Mostrar solo los primeros 10 highscores
+                    highscoresList.innerHTML += `<p>${index + 1}. ${score.nombre} - ${score.puntuacion} PTS</p>`;
                 });
 
                 // Agregar botones
