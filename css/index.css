@@ -148,17 +148,21 @@ label {
       max-height: 90%; /* Ajusta la altura según sea necesario */
       padding: 20px; /* Añadido para dar más espacio al contenido */
   }
-  utton {
-    font-size: 1.2em;
+
+  h2 {
+    font-size: large;
+  }
+  button {
+    font-size: 1em;
     padding: 10px 15px; /* Ajusta el relleno del botón para que sea más proporcionado */
 }
 
 #dificultad {
     font-size: 1em;
-    width: 50%; /* Hacer que el selector ocupe todo el ancho disponible */
-    max-width: 100%; /* Evitar que se desborde en pantallas pequeñas */
+    width: 30%; /* Hacer que el selector ocupe todo el ancho disponible */
+    max-width: 30%; /* Evitar que se desborde en pantallas pequeñas */
     margin-bottom: 0px; /* Espaciado inferior más pequeño */
-    max-height: 80%;
+    height: 30%;
     box-sizing: border-box; /* Ajusta el modelo de caja para incluir el relleno y el borde */
 }
 
@@ -185,6 +189,15 @@ img {
   width: 60%;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilos para el texto del selector de nivel de dificultad */
+label {
+  display: block; /* Asegura que la etiqueta sea una línea completa */
+  margin-bottom: 10px; /* Espaciado inferior */
+  font-size: 1em; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
 }
 
 }
