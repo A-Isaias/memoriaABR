@@ -251,24 +251,20 @@ body {
     width: 120px; /* Ajusta el valor según sea necesario */
   }
 }
-
 /* Tamaño de las imágenes para pantallas pequeñas (celulares) */
 @media screen and (max-width: 767px) {
   .container {
     width: 100%;
-    height: auto;
-    max-height: none;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: red;
+    gap: 10px; /* Espacio entre las tarjetas */
   }
 
   .cards {
     height: calc(25% - 10px); /* Calcula el 25% del ancho menos el espacio entre las tarjetas */
     width: calc(25% - 10px); /* Calcula el 25% del ancho menos el espacio entre las tarjetas */
-    margin: 5px; /* Agrega espacio entre las tarjetas */
   }
 
   .card .back-view img {
@@ -277,3 +273,4 @@ body {
     width: auto;
   }
 }
+
