@@ -257,11 +257,12 @@ body {
     width: 70%;
     height: 500px;
     max-height: 500px; /* Ajusta según sea necesario */
+    background-color: yellow;
   }
 
   .cards {
     height: 300px;
-    width: 100%;
+    width: 120%;
   }
 
   .card .back-view img {
