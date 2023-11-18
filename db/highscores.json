@@ -17,6 +17,14 @@
   },
   {
     "nombre": "Majes",
+    "puntuacion": "165"
+  },
+  {
+    "nombre": "VECINO",
+    "puntuacion": "165"
+  },
+  {
+    "nombre": "Majes",
     "puntuacion": "110"
   },
   {
@@ -30,13 +38,5 @@
   {
     "nombre": "magda",
     "puntuacion": 50
-  },
-  {
-    "nombre": "magda",
-    "puntuacion": 40
-  },
-  {
-    "nombre": "Majes",
-    "puntuacion": "40"
   }
 ]

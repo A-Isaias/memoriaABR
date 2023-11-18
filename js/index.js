@@ -1,11 +1,11 @@
 
 const instruccionesJuego = `
-¡Bienvenido al Memory Game del Grupo de telegram de Anderson Blog Ride!<br>
+¡Bienvenido al Memory Game del grupo de telegram de Anderson Blog Ride!<br>
 <br> 
 <strong>Objetivo del Juego:</strong> Encuentra todas las parejas de cartas iguales antes de que<br>
 se agote el tiempo.Cada vez que encuentres una pareja, ganarás puntos.<br>
 <br>
-<strong>Cómo Jugar:</strong>Haz clic en las cartas para darles vuelta y revelar la imagen oculta.<br>
+<strong>Cómo Jugar:</strong>Haz clic en las cartas para darlas vuelta y revelar la imagen oculta.<br>
 Encuentra todas las parejas antes de que el tiempo se agote.<br>
 <br>
 <strong>Puntuación:</strong>Cada pareja encontrada te otorga puntos.<br>
