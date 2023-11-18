@@ -204,20 +204,15 @@ label {
 /* Estilos específicos para resoluciones menores o iguales a 767px */
 @media screen and (max-width: 767px) {
   .inicio-container {
-    max-width: 90%; /* Ajusta el ancho según sea necesario */
+    max-width: 100%; /* Ajusta el ancho según sea necesario */
     padding: 15px; /* Añade un poco de espacio alrededor del contenedor */
   }
 
   #dificultad {
     font-size: 1em;
-    width: 100%; /* Hacer que el selector ocupe todo el ancho disponible */
+    width: 50%; /* Hacer que el selector ocupe todo el ancho disponible */
     max-width: 100%; /* Evitar que se desborde en pantallas pequeñas */
     margin-bottom: 15px; /* Espaciado inferior */
-  }
-
-  button {
-    font-size: 1em;
-    padding: 10px 15px; /* Ajusta el relleno del botón para que sea más proporcionado */
   }
 
   img {
@@ -226,8 +221,23 @@ label {
   }
 
   .modal-content-instrucciones {
-    font-size: 18px; /* Reduce el tamaño del texto del modal para pantallas pequeñas */
+    font-size: 14px; /* Reduce el tamaño del texto del modal para pantallas pequeñas */
   }
+  button {
+    font-size: 1em;
+    padding: 10px 15px; /* Ajusta el relleno del botón para que sea más proporcionado */
+    margin-top: 20px;
+    padding: 10px 20px;
+    /* font-size: 16px; */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+ 
 }
 
 
