@@ -254,19 +254,19 @@ body {
 /* Tamaño de las imágenes para pantallas pequeñas (celulares) */
 @media screen and (max-width: 767px) {
   .container {
-    width: 70%;
+    width: 90%;
     height: 500px;
     max-height: 500px; /* Ajusta según sea necesario */
-    background-color: red;
+    background-color: blue;
   }
 
   .cards {
     height: 300px;
-    width: 150%;
+    width: 110%;
   }
 
   .card .back-view img {
-    max-width: 120%;
+    max-width: 110%;
     max-height: 100%; /* Cambiado a 100% para ocupar la altura máxima disponible */
     width: auto;
   }
