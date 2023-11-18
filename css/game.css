@@ -266,7 +266,7 @@ body {
   .cards {
     height: auto;
     width: 100%;
-    max-width: 300px; /* Limita el ancho si es necesario */
+    max-width: 500px; /* Limita el ancho si es necesario */
   }
 
   .card .back-view img {
