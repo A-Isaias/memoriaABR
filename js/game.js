@@ -61,6 +61,8 @@ const puntuacionMaxima = 5000;
 
 let tiempoRestante = 60;
 let temporizador;
+// Lista de sonidos para errores
+const sonidosError = ["sounds/lose.mp3", "sounds/nono.mp3", "sounds/ja.mp3"];
 
 function actualizarReloj() {
     tiempoRestanteElemento.textContent = `Tiempo restante: ${tiempoRestante} segundos`;
@@ -186,7 +188,10 @@ const comparar = (imagen1, imagen2) => {
     setTimeout(() => {
         tar_1.classList.add("moverse");
         tar_2.classList.add("moverse");
-        sonidos.src = "sounds/lose.mp3";
+        // Seleccionar un sonido al azar de la lista de sonidos de error
+        const sonidoErrorAleatorio = sonidosError[Math.floor(Math.random() * sonidosError.length)];
+
+        sonidos.src = sonidoErrorAleatorio;
         sonidos.volume = 0.3;
         sonidos.play();
     }, 500);

@@ -12,6 +12,10 @@
     "puntuacion": 850
   },
   {
+    "nombre": "Majes",
+    "puntuacion": "285"
+  },
+  {
     "nombre": "Ariel en Moto",
     "puntuacion": "165"
   },
@@ -34,9 +38,5 @@
   {
     "nombre": "Javi Caba",
     "puntuacion": 60
-  },
-  {
-    "nombre": "magda",
-    "puntuacion": 50
   }
 ]
