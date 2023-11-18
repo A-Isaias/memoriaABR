@@ -28,8 +28,8 @@ app.post('/highscores', (req, res) => {
   // Ordena los highscores de mayor a menor
   highscores.sort((a, b) => b.puntuacion - a.puntuacion);
 
-  // Mantiene solo los 10 primeros registros
-  highscores = highscores.slice(0, 10);
+  // Mantiene solo los 20 primeros registros
+  highscores = highscores.slice(0, 20);
 
   fs.writeFileSync('db/highscores.json', JSON.stringify(highscores, null, 2), 'utf-8');
   res.json({ success: true });

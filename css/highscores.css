@@ -18,9 +18,7 @@ h1 {
 
 h2 {
     text-decoration-line: underline;
-    
 }
-
 
 #highscores-list {
     background-color: black;
@@ -51,7 +49,6 @@ h2 {
 #highscores-list p {
     font-size: 20px;
     margin-bottom: 10px;
-    position: relative; /* Necesario para que la animación funcione */
 }
 
 #highscores-list p:first-child::before {
