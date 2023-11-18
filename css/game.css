@@ -256,6 +256,7 @@ body {
   .container {
     width: 70%;
     height: 600px;
+    background-color: red;
      /* Ajusta según sea necesario */
   }
 
