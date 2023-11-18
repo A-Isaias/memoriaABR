@@ -177,8 +177,8 @@ body {
 }
 
 
-/* Tamaño de las imágenes para resoluciones mayores a 800x600 */
-@media screen and (min-width: 800px) {
+/* Tamaño de las imágenes para resoluciones menores a 800x600 */
+@media screen and (max-width: 800px) {
   .container {
     width: 300px; /* Ajusta el valor según sea necesario */
     height: 300px; /* Ajusta el valor según sea necesario */
