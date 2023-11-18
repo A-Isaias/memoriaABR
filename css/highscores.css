@@ -16,6 +16,12 @@ h1 {
     font-size: 30px; /* Ajusta el tamaño de fuente según tus preferencias */
 }
 
+h2 {
+    text-decoration-line: underline;
+    
+}
+
+
 #highscores-list {
     background-color: black;
     padding: 20px;

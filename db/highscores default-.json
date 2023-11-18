@@ -1,0 +1,12 @@
+[
+    {"nombre": "Anderson", "puntuacion": 1000},
+    {"nombre": "Ariel en Moto", "puntuacion": 900},
+    {"nombre": "Magda Baz", "puntuacion": 850},
+    {"nombre": "Javi Caba", "puntuacion": 760},
+    {"nombre": "Hugo Gallinger", "puntuacion": 200},
+    {"nombre": "Willy Caima", "puntuacion": 150},
+    {"nombre": "Agus Saavedra", "puntuacion": 100},
+    {"nombre": "Panda", "puntuacion": 50},
+    {"nombre": "Franco Joaquin", "puntuacion": 20},
+    {"nombre": "Apu", "puntuacion": 10}
+]

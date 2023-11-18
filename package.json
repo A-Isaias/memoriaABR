@@ -1,0 +1,16 @@
+{
+  "name": "memoria-abr",
+  "version": "1.0.0",
+  "description": "Juego de la memoria del grupo de telegram de Anderson Blog Ride",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev" : "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

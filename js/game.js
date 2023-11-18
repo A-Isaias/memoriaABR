@@ -15,14 +15,13 @@ const mostrarModal = (mensaje, callback) => {
     // Agregar contenido adicional (puedes personalizar según tus necesidades)
     modalContent.innerHTML += `<div>${mensaje.replace(/\n/g, "<br>")}</div>`;
 
-    modalContent.innerHTML += "<p>-</p>";
+    modalContent.innerHTML += "<br>";
 
-    modalContent.innerHTML += "<p>Haz click para ver los Yeeecords</p>";
-
+    modalContent.innerHTML += "<p>Haz click para ver los Yecords</p>";
 
     // Agregar botones
     const buttonsContainer = document.createElement("div");
-    buttonsContainer.innerHTML = "<br><button onclick='volverAlMenu()'>Volver al Menú</button> <button onclick='reiniciarJuegoHandler()'>Reiniciar Juego</button>";
+    buttonsContainer.innerHTML = "<br><button id='volverAlMenuBtn' onclick='volverAlMenu()'>Volver al Menú</button> <button id='reiniciarJuegoBtn' onclick='reiniciarJuegoHandler()'>Reiniciar Juego</button>";
     modalContent.appendChild(buttonsContainer);
 
     // Mostrar el modal
@@ -35,7 +34,14 @@ const mostrarModal = (mensaje, callback) => {
             callback();
         }
     });
-};
+
+    // Ocultar los botones cuando ganas
+    const volverAlMenuBtn = document.getElementById('volverAlMenuBtn');
+    const reiniciarJuegoBtn = document.getElementById('reiniciarJuegoBtn');
+
+    volverAlMenuBtn.style.display = "none";
+    reiniciarJuegoBtn.style.display = "none";
+}
 
 const ocultarModal = () => {
     modal.style.display = "none";
@@ -167,27 +173,6 @@ const comparar = (imagen1, imagen2) => {
 
             setTimeout(() => {
                 calcularPuntuacionFinal();
-
-                const bonificacionConsecutivas = Math.pow(2, consecutivas - 1) * 20;
-
-                const puntosIntentos = Math.max(0, 20 - intentos) * 5;
-                const puntosTiempoRestante = calcularPuntosTiempoRestante(tiempoRestante);
-
-                const totalPuntos =
-                    puntosIntentos + puntosTiempoRestante + bonificacionConsecutivas;
-
-                const desglosePuntos = `
-                Puntuación:
-                Intentos (${intentos}): ${puntosIntentos} pts
-                Tiempo restante (${tiempoRestante} seg.): ${puntosTiempoRestante} pts
-                Bonus por combo (${consecutivas}): ${bonificacionConsecutivas} pts
-                Total: ${totalPuntos} pts
-                `;
-
-                mostrarModal(desglosePuntos, () => {
-                    // Llamar a verificarHighscore con la puntuación actual
-                    verificarHighscore(puntuacion);
-                });
             }, 2000);
         }
         tar_1.removeEventListener("click", darVuelta);
@@ -228,17 +213,28 @@ const mostrarGameOver = (mensaje) => {
     // Agregar mensaje
     modalContent.innerHTML += `<p>${mensaje}</p>`;
 
+    modalContent.innerHTML += "<br>";
+
     // Agregar mensaje adicional
-    modalContent.innerHTML += "<p>Haz click para ver los records</p>";
+    modalContent.innerHTML += "<p>Haz click para ver los Yecords</p>";
 
     // Agregar botones
-    modalContent.innerHTML += "<br><button onclick='volverAlMenu()'>Volver al Menú</button> <button onclick='reiniciarJuegoHandler()'>Reiniciar Juego</button>";
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.innerHTML = "<br><button id='volverAlMenuBtn' onclick='volverAlMenu()'>Volver al Menú</button> <button id='reiniciarJuegoBtn' onclick='reiniciarJuegoHandler()'>Reiniciar Juego</button>";
+    modalContent.appendChild(buttonsContainer);
 
     // Mostrar el modal
     modal.style.display = "block";
 
     // Redirigir a highscores.html al hacer clic en cualquier lugar, excepto en los botones
     document.addEventListener("click", irAHighscores);
+
+    // Ocultar los botones cuando pierdes
+    const volverAlMenuBtn = document.getElementById('volverAlMenuBtn');
+    const reiniciarJuegoBtn = document.getElementById('reiniciarJuegoBtn');
+
+    volverAlMenuBtn.style.display = "none";
+    reiniciarJuegoBtn.style.display = "none";
 };
 
 const irAHighscores = (event) => {
@@ -252,32 +248,33 @@ const irAHighscores = (event) => {
 };
 
 const calcularPuntuacionFinal = () => {
-    const bonificacionConsecutivas = Math.pow(2, consecutivas - 1) * 10;
+    const bonificacionConsecutivas = Math.pow(2, consecutivas - 1) * 20;
 
     const puntosIntentos = Math.max(0, 20 - intentos) * 5;
-    const puntosTiempoRestante = tiempoRestante * 2;
+    const puntosTiempoRestante = calcularPuntosTiempoRestante(tiempoRestante);
 
     const totalPuntos =
         puntosIntentos + puntosTiempoRestante + bonificacionConsecutivas;
 
     const desglosePuntos = `
-        GANASTE! BIEN HECHO VIRGO!
         Puntuación:
-        <br>Intentos (${intentos}): ${puntosIntentos} pts
-        <br>Tiempo restante (${tiempoRestante} seg.): ${puntosTiempoRestante} pts
-        <br>Bonus por combo (${consecutivas}): ${bonificacionConsecutivas} pts
-        <br>Total: ${totalPuntos} pts
+        Intentos (${intentos}): ${puntosIntentos} pts
+        Tiempo restante (${tiempoRestante} seg.): ${puntosTiempoRestante} pts
+        Bonus por combo (${consecutivas}): ${bonificacionConsecutivas} pts
+        Total: ${totalPuntos} pts
     `;
+
+    // Guardar la puntuación en localStorage
+    localStorage.setItem("puntuacion", totalPuntos);
 
     mostrarModal(desglosePuntos, () => {
         // Llamar a verificarHighscore con la puntuación actual
-        verificarHighscore(puntuacion);
+        verificarHighscore(totalPuntos);
     });
 
     puntuacion += totalPuntos;
-
-    puntuacion = Math.min(puntuacion, puntuacionMaxima);
 };
+
 
 const darVuelta = (e) => {
     let tarjeta = e.target;
@@ -345,36 +342,31 @@ const cargarHighscores = () => {
         .catch((error) => console.error("Error al cargar highscores:", error));
 };
 
-// Función para guardar los highscores en el JSON
-const guardarHighscores = (nuevoHighscore) => {
-    return fetch("db/highscores.json", {
-        method: "POST", // Cambia a "PUT" si es necesario
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(nuevoHighscore),
-    })
-        .then((response) => response.json())
-        .catch((error) => console.error("Error al guardar highscores:", error));
-};
-
 // Función para verificar si la puntuación es suficientemente alta para estar en el top 10
-const verificarHighscore = (puntuacion) => {
-    // Lógica para verificar si la puntuación es suficientemente alta
-    // Si es así, abrir la página de highscores
-    if (puntuacion > 0) {
-        window.location.href = "highscores.html";
-    } else {
+const verificarHighscore = async (puntuacion) => {
+    try {
+        // Cargar los highscores desde el JSON
+        const highscores = await cargarHighscores();
+
+        // Obtener las puntuaciones actuales
+        const puntuacionesGuardadas = highscores.map((hs) => hs.puntuacion);
+
+        // Verificar si la puntuación es mayor que alguna de las guardadas
+        if (puntuacion > Math.min(...puntuacionesGuardadas)) {
+            // Si es así, redirigir a newhsc.html para guardar el nuevo highscore
+            window.location.href = "newhsc.html";
+        } else {
+            // Si no, redirigir a highscores.html para mostrar los records actuales
+            window.location.href = "highscores.html";
+        }
+    } catch (error) {
+        console.error("Error al verificar highscore:", error);
+        // En caso de error, manejarlo según tus necesidades
         reiniciarJuegoHandler();
     }
 };
 
-// Función para manejar el evento click específico para highscores
-const manejarHighscoresClick = () => {
-    // Aquí llamamos la lógica de highscores, por ejemplo:
-    cargarHighscores().then((highscores) => {
-        console.log("Highscores cargados:", highscores);
-    });
-};
-
 reiniciarJuego();
+
+
+//hasta aca anda bien "bien"
