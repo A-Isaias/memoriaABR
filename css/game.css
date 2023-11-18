@@ -257,16 +257,16 @@ body {
     width: 70%;
     height: 500px;
     max-height: 500px; /* Ajusta según sea necesario */
-    background-color: yellow;
+    background-color: red;
   }
 
   .cards {
     height: 300px;
-    width: 120%;
+    width: 150%;
   }
 
   .card .back-view img {
-    max-width: 100%;
+    max-width: 120%;
     max-height: 100%; /* Cambiado a 100% para ocupar la altura máxima disponible */
     width: auto;
   }
