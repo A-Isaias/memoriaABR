@@ -255,8 +255,8 @@ body {
 @media screen and (max-width: 767px) {
   .container {
     width: 70%;
-    height: 600px;
-     /* Ajusta según sea necesario */
+    height: 500px;
+    max-height: 500px; /* Ajusta según sea necesario */
   }
 
   .cards {
