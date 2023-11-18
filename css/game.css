@@ -254,13 +254,13 @@ body {
 /* Tamaño de las imágenes para pantallas pequeñas (celulares) */
 @media screen and (max-width: 767px) {
   .container {
-    width: 100%;
-    height: 300px;
+    width: 70%;
+    height: 500px;
     max-height: 500px; /* Ajusta según sea necesario */
   }
 
   .cards {
-    height: 200px;
+    height: 300px;
     width: 100%;
   }
 
