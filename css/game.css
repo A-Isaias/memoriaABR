@@ -254,19 +254,24 @@ body {
 /* Tamaño de las imágenes para pantallas pequeñas (celulares) */
 @media screen and (max-width: 767px) {
   .container {
-    width: 70%;
-    height: 800px;
-     /* Ajusta según sea necesario */
+    width: 100%;
+    height: 100vh; /* Usa el 100% de la altura de la ventana */
+    max-height: none; /* Elimina la altura máxima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .cards {
-    height: 300px;
+    height: auto;
     width: 100%;
+    max-width: 300px; /* Limita el ancho si es necesario */
   }
 
   .card .back-view img {
     max-width: 100%;
-    max-height: 100%; /* Cambiado a 100% para ocupar la altura máxima disponible */
+    max-height: 100%;
     width: auto;
   }
 }
