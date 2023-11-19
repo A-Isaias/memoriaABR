@@ -87,3 +87,26 @@ h2 {
 #highscores-list button:hover {
     background-color: darkred;
 }
+/* Media Query para pantallas de celulares */
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #highscores-list {
+        padding: 15px;
+    }
+
+    #highscores-list h2 {
+        font-size: 16px;
+    }
+
+    #highscores-list p {
+        font-size: 14px;
+    }
+
+    #highscores-list button {
+        font-size: 12px;
+        margin-top: 10px;
+    }
+}

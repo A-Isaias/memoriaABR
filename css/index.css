@@ -221,7 +221,7 @@ label {
   }
 
   .modal-content-instrucciones {
-    font-size: 14px; /* Reduce el tamaño del texto del modal para pantallas pequeñas */
+    font-size: 12px; /* Reduce el tamaño del texto del modal para pantallas pequeñas */
   }
   button {
     font-size: 1em;
