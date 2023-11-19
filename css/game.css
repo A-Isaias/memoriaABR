@@ -304,4 +304,15 @@ body {
   padding: 10px; /* Ajusta el espacio interno según sea necesario */
   margin: 0; /* Elimina el margen para que los botones estén más juntos */
 }
+
+.button-container {
+  flex-direction: column; /* Cambia la dirección del eje principal para apilar los botones verticalmente */
+  align-items: center; /* Centra los botones horizontalmente */
+}
+
+/* Puedes agregar estilos adicionales específicos para dispositivos móviles aquí */
+.button-container button {
+  margin-bottom: 10px; /* Ajusta el margen inferior según sea necesario */
+}
+
 }
