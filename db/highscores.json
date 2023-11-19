@@ -16,6 +16,10 @@
     "puntuacion": 760
   },
   {
+    "nombre": "De la crotera",
+    "puntuacion": "440"
+  },
+  {
     "nombre": "Hugo Gallinger",
     "puntuacion": 200
   },
@@ -73,10 +77,6 @@
   },
   {
     "nombre": "Cristian",
-    "puntuacion": 20
-  },
-  {
-    "nombre": "0800",
     "puntuacion": 20
   }
 ]

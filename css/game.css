@@ -299,4 +299,9 @@ body {
 .modal-content p.puntuacion-final {
     font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
 }
+.modal-content button {
+  font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+  padding: 10px; /* Ajusta el espacio interno según sea necesario */
+  margin: 0; /* Elimina el margen para que los botones estén más juntos */
+}
 }
