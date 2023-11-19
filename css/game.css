@@ -270,4 +270,33 @@ body {
     max-height: 100%; /* Cambiado a 100% para ocupar la altura máxima disponible */
     width: auto;
   }
+
+  .container .header {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.container h2 {
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+.container #escuchar,
+.container #info-combo,
+.container #tiempo-restante {
+    font-size: 14px; /* Ajusta el tamaño de fuente según sea necesario */
+}
+
+.container h1 {
+    font-size: 16px; /* Ajusta el tamaño de fuente según sea necesario */
+    padding: 0; /* Ajusta el espacio interior según sea necesario */
+}
+
+.modal-content {
+    width: 80%; /* Ajusta el ancho según sea necesario */
+}
+
+.modal-content p.puntuacion-final {
+    font-size: 24px; /* Ajusta el tamaño de fuente según sea necesario */
+}
 }
