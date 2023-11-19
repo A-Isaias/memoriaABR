@@ -257,18 +257,24 @@ body {
     width: 90%;
     height: 480px;
     max-height: 500px; /* Ajusta según sea necesario */
-    
+    padding: 10px; /* AGREGADO Reducir el espacio interno del contenedor */
   }
-
+/*agregado*/
   .cards {
     height: 300px;
     width: 100%;
+    margin: 5px; /* Reducir el margen alrededor de las cartas */
   }
 
   .card .back-view img {
     max-width: 100%;
     max-height: 100%; /* Cambiado a 100% para ocupar la altura máxima disponible */
     width: auto;
+  }
+/*agregado*/
+  .card {
+    height: calc(100% / 4 - 10px); /* Reducir el margen superior e inferior */
+    width: calc(100% / 4 - 10px); /* Reducir el margen izquierdo y derecho */
   }
 
   .container .header {
