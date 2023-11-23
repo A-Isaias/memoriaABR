@@ -1,0 +1,52 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const highscoreForm = document.getElementById("highscore-form");
+
+    // Obtener la puntuación del localStorage o un valor predeterminado si no está presente
+    const puntuacion = localStorage.getItem("puntuacion") || 0;
+
+    // Actualizar el campo de puntuación en el formulario
+    document.getElementById("puntuacion").value = puntuacion;
+
+    // Mostrar la puntuación en algún elemento HTML
+    const puntuacionElement = document.getElementById("mostrar-puntuacion");
+    puntuacionElement.textContent = `Tu puntuación: ${puntuacion} puntos`;
+
+    highscoreForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        // Obtener el nombre del formulario
+        const nombre = document.getElementById("nombre").value;
+
+        // Validar que se haya ingresado un nombre
+        if (!nombre) {
+            alert("Por favor, ingresa tu nombre.");
+            return;
+        }
+
+        // Crear un objeto con el nombre y la puntuación
+        const nuevoHighscore = { nombre, puntuacion };
+
+        try {
+            // Guardar el highscore
+            await guardarHighscore(nuevoHighscore);
+
+            // Redirigir a la página de highscores
+            window.location.href = "highscores.html";
+        } catch (error) {
+            console.error("Error al guardar highscore:", error);
+        }
+    });
+});
+
+// Define la función guardarHighscore
+const guardarHighscore = (nuevoHighscore) => {
+    console.log("Guardando highscore:", nuevoHighscore);
+    return fetch("http://localhost:3000/highscores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(nuevoHighscore),
+    })
+    .catch((error) => console.error("Error al guardar highscores:", error));
+  };

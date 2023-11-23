@@ -1,0 +1,82 @@
+[
+  {
+    "nombre": "Anderson",
+    "puntuacion": 1000
+  },
+  {
+    "nombre": "Ariel en Moto",
+    "puntuacion": 900
+  },
+  {
+    "nombre": "Magda Baz",
+    "puntuacion": 850
+  },
+  {
+    "nombre": "Javi Caba",
+    "puntuacion": 760
+  },
+  {
+    "nombre": "De la crotera",
+    "puntuacion": "440"
+  },
+  {
+    "nombre": "Hugo Gallinger",
+    "puntuacion": 200
+  },
+  {
+    "nombre": "Majes",
+    "puntuacion": "190"
+  },
+  {
+    "nombre": "Willy Caima",
+    "puntuacion": 150
+  },
+  {
+    "nombre": "Agus Saavedra",
+    "puntuacion": 100
+  },
+  {
+    "nombre": "Germancho",
+    "puntuacion": 90
+  },
+  {
+    "nombre": "Fer Cat",
+    "puntuacion": 80
+  },
+  {
+    "nombre": "Tano Gonza",
+    "puntuacion": 80
+  },
+  {
+    "nombre": "Franco Joaquin",
+    "puntuacion": 70
+  },
+  {
+    "nombre": "Mati Malargue",
+    "puntuacion": 60
+  },
+  {
+    "nombre": "Matias Apujanaseishon",
+    "puntuacion": 50
+  },
+  {
+    "nombre": "Mike",
+    "puntuacion": 40
+  },
+  {
+    "nombre": "Panda",
+    "puntuacion": 40
+  },
+  {
+    "nombre": "Teo Insider",
+    "puntuacion": 30
+  },
+  {
+    "nombre": "Rodri Ñoqui",
+    "puntuacion": 30
+  },
+  {
+    "nombre": "Cristian",
+    "puntuacion": 20
+  }
+]
